@@ -1,3 +1,27 @@
+# List of activity
+## done
+ - [ ] (Routing)
+ - [ ] (Private routing)
+ - [ ] (Make atomic component)
+ - [ ] (Dumies data)
+ - [ ] (Login condition)
+ - [ ] (Detail Product)
+ - [ ] (Modal login and register)
+ - [ ] (Dom event to parenth)
+ ## to do
+ - [x] (Responsive)
+ - [x] (React redux | React context)
+ - [x] (Nested Login Condition)
+ - [x] (404 not foun routing)
+ - [x] (Modal atomic component)
+ - [x] (Modal atomic component)
+ - [x] (Clean code)
+ # avoid 
+ - [x] (Drill prop)
+ - [x] (Spagheti code)
+ - [x] (Callback hell)
+ - [x] (Long Code)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
