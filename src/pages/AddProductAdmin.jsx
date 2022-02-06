@@ -3,7 +3,7 @@ import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 
 import productImage from '../assets/images/largeImages/product-hero.svg';
 import AddProduct from "../components/atomic/addProductAdm/AddProduct";
-
+ 
 export default function AddProductAdmin(){
     return(
         <Container>

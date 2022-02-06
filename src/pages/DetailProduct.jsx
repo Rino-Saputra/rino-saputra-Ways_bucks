@@ -1,6 +1,6 @@
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { TopingRender, productList, productHero, topingData } from '../containerExport/exportModule';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function DetailProduct(){
@@ -12,6 +12,8 @@ export default function DetailProduct(){
         setPrice(price+val);
     }
     
+    const navigate=useNavigate();
+
     return(
         <Container>
             <Row>
@@ -39,7 +41,7 @@ export default function DetailProduct(){
                     </Row>
                     <Row>
                         <Col md={12}>
-                            <Button  className="btn btn-danger w-100 my-5 bg-red">Add Chart</Button>
+                            <Button onClick={()=>navigate('/userchart')} className="btn btn-danger w-100 my-5 bg-red">Add Chart</Button>
                         </Col>
                     </Row>
                 </Col>

@@ -1,15 +1,23 @@
 import React,{useState} from "react";
 import { Container, Row, Col, Image, Button,Form, Modal } from "react-bootstrap";
 import { UserTotalChartRender, FormUserChart, TotalPrice, userChartOrder } from '../containerExport/exportModule'
+import { useNavigate } from "react-router-dom";
+import { dataLogin } from "../data/orderDataDumies/dataLogin";
 
 export default function UserChart(){
     const [showProcess, setShowProcess] = useState(false);
 
-    const handleCloseProcess = () => setShowProcess(false);
+    const handleCloseProcess = () =>{
+        setShowProcess(false);
+        // dataLogin.isLogin=false;
+        navigate('/');
+    }
     const handleShowProcess = (e) => {
         e.preventDefault();
         setShowProcess(true);
     }
+
+    const navigate=useNavigate();
 
     return(
         <Container className='text-red'>

@@ -1,4 +1,7 @@
 # List of activity
+## bug
+ - [x] (cant back home when after login)
+ - [x] (still show modal when login already true)
 ## done
  - [x] (Routing)
  - [x] (Private routing)

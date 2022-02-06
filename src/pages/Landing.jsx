@@ -1,8 +1,39 @@
 import {Container, Row, Col } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ModalComponent from '../components/atomic/ModalComponent';
 import { landingImages, productList, OrderList} from '../containerExport/exportModule';
-
+import { dataLogin } from '../data/orderDataDumies/dataLogin';
 
 export default function Landing(){
+
+    const navigate=useNavigate();
+
+    const [showModal, setModal] = useState(false);
+    const [login, setLogin] = useState(false);//pass to props to get modal is login or register
+    const handleModal = () => setModal(prevShow => !prevShow);
+
+    const [isLogin,setIsLogin]=useState(dataLogin.isLogin);
+    const handleIsLogin =(toLogin)=>{
+        if(toLogin){
+            dataLogin.forceRerender(true);
+            setIsLogin(true);
+        } else {
+            handleModal();
+        }
+    }
+    const [paramsKey,setparamsKey]=useState(0);
+    const getClickKey = (keyval) => {
+        setparamsKey(keyval);
+    }
+    
+    useEffect(()=>{
+        dataLogin.isLogin=isLogin;
+        if(isLogin){
+            navigate(`detailproduct/${paramsKey}`);
+        }
+    },[isLogin]);
+
     return(
         <Container className='py-5'>
             <Row className='mb-5'>
@@ -24,13 +55,14 @@ export default function Landing(){
             <Row>
                 { productList.map((data,i)=>{
                     return(
-                        <Col md={3} className='cursor-p' >
-                            <OrderList keyvalue={i} dataProduct={data} />
+                        <Col md={3} className='cursor-p' onClick={()=>{handleModal();setLogin(true);}}>
+                            <OrderList getclickkey={(keyval)=> getClickKey(keyval)} keyvalue={i} dataProduct={data} />
                         </Col>  
                     );
                     }
                 )}
             </Row>
+            {showModal && <ModalComponent getLogin={login} deactivemodal={(toLogin)=>{handleIsLogin(toLogin);}}/>}
         </Container>
     );
 }
